@@ -4,7 +4,7 @@ const USER1_JWT = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTU2NDQ0ODQs
 const USER2_JWT = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MTU2NDQ1MjgsImp0aSI6ImExNmYyMjEwLTg0MDUtMTFlYi1iMTVlLWQ5OTMxNmRhZWQ5OSIsImV4cCI6MTYxNTczMDkyNywiYWNsIjp7InBhdGhzIjp7Ii8qL3VzZXJzLyoqIjp7fSwiLyovY29udmVyc2F0aW9ucy8qKiI6e30sIi8qL3Nlc3Npb25zLyoqIjp7fSwiLyovZGV2aWNlcy8qKiI6e30sIi8qL2ltYWdlLyoqIjp7fSwiLyovbWVkaWEvKioiOnt9LCIvKi9hcHBsaWNhdGlvbnMvKioiOnt9LCIvKi9wdXNoLyoqIjp7fSwiLyova25vY2tpbmcvKioiOnt9LCIvKi9sZWdzLyoqIjp7fX19LCJhcHBsaWNhdGlvbl9pZCI6ImM4OGFjYWI3LTU3NjItNDYyYy1iZTJlLTdjMjc5ZTY2YjBjOCIsInN1YiI6IlVTRVIyX05BTUUifQ.br3uei1eGZPybAy8euA8O2s6CDsB37CA1917bNkMT3rXLVsPo2kpiC1yM25TwfhshgF5jA6Zhp8S25EBRdXVIkpP3UeNt6sMGGGRGi5YmNpQBYECMqNfbdWHyhgAEu9bH-v2nJjWGqWghsFCDadgW6p6KKH9BLQoowJ1jrRgyIvraPigSyVc_ebOaA4rGfubgYPkJjkbkXKTwa9vba8Kc054xfrRcs0jKp8sv3bhJ9G3l2VEiNwBLxNRUupIDSLwjLbpTfa6hYvzmty18o0OqywQeByoxOpsbcLQHxnCTYIEuy0Y5jbkcx6sk7z5fBlXhkqpb777HlN1wJVpuH2bLw';
 const CONVERSATION_ID = 'CON-643b75ce-90a5-4922-ae64-11a878eef088';
 
-const nexmoClient = new NexmoClient(config);
+
 const messageTextarea = document.getElementById('messageTextarea');
 const messageFeed = document.getElementById('messageFeed');
 const sendButton = document.getElementById('send');
@@ -47,7 +47,7 @@ loadMessagesButton.addEventListener('click', async (event)=>{
 });
 
 async function run(userToken){
-  var client = nexmoClient({ debug: true });
+  var client = new NexmoClient({ debug: true });
   let app = await client.login(userToken);
   conversation = await app.getConversation(CONVERSATION_ID);
 
